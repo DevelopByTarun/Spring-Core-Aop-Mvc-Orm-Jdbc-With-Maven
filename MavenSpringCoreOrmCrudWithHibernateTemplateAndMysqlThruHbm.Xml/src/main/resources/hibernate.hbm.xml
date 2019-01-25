@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+<hibernate-mapping>
+   <class name="com.spring.orm.dto.BookDTO" table="book_springorm_hbtemplate_mstr">
+      <id name="id" type="int" column="book_id">
+         <generator class="increment"/>
+      </id>
+      <property name="name" type="string">
+      	<column name="book_name" length="12"></column>
+      </property>
+      <property name="author" type="string">
+      	<column name="book_author" length="12"></column>
+      </property>
+      <property name="publisher" type="string">
+      	<column name="book_publisher" length="16"></column>
+      </property>
+      <property name="price" type="int">
+      	<column name="book_price" precision="11"></column>
+      </property>
+   </class>
+</hibernate-mapping>

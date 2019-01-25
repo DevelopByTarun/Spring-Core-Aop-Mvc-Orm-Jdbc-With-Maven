@@ -1,0 +1,29 @@
+.idx {
+	text-align: center;
+	font-family: cursive;
+	color: red;
+}
+
+.enter {
+	text-align: center;
+	font-family: cursive;
+	color: blue;
+}
+
+.show {
+	text-align: center;
+	font-family: cursive;
+	color: green;
+}
+
+.btnOne a {
+	color: black;
+}
+
+.btnTwo a {
+	color: black;
+}
+
+table tbody {
+	text-align: center;
+}

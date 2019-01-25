@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="parentCollection" class="com.app.bean.MyCollection">
+       <property name="mySet">
+	     <set>
+             <value>AAAA</value>
+             <value>BBBB</value>
+         </set>
+       </property>
+    </bean>
+    <bean id="childCollection" parent="parentCollection">
+       <property name="mySet">
+	     <set merge="true">
+             <value>CCCC</value>
+             <value>DDDD</value>
+         </set>
+       </property>
+    </bean>
+</beans>

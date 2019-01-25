@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="newCustomer" class="com.app.spel.bean.Customer">
+		<property name="age" value="#{ T(java.lang.Math).random()* 100.0 }" />
+		<property name="firstName" value="#{ 'Ad'.concat('am') }" />
+		<property name="lastName" value="#{ 'Bale' }" />
+	</bean>
+
+	<bean id="anotherCustomer" class="com.app.spel.bean.Customer">
+		<property name="age" value="#{ 15 + 1 }" />
+		<property name="firstName"
+			value="#{ newCustomer.getAge() gt 14 ? 'Chris' : 'Smith' }" />
+		<property name="lastName" value="#{ newCustomer.lastName }" />
+	</bean>
+
+	<bean id="service" class="com.app.spel.bean.CustomerService">
+		<property name="name"
+			value="#{ new String('Service').concat(' for VIP').toUpperCase() }" />
+		<property name="customer" value="#{ anotherCustomer }" />
+	</bean>
+	
+	<bean id="display" class="com.app.spel.bean.Display">
+		<property name="a" value="#{ myproperties['config.string.key'] }" />
+		<property name="b" value="#{ myproperties['config.int.key'] }" />
+		<property name="c" value="#{ myproperties['config.boolean.key']}" />
+		<property name="d" value="#{ (50^2/40) > 50? 'right' : 'wrong' }" />
+	</bean>
+	
+	<util:properties id="myproperties" location="classpath:myapp.properties"/>
+
+</beans>
