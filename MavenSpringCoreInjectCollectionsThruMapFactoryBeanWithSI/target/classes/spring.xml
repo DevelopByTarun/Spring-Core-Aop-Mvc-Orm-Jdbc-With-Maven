@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+	
+		<bean id="employeeObject" class="com.spring.core.bean.EmployeeBean" scope="prototype" lazy-init="true">
+			<property name="eid" value="1002"></property>
+			<property name="ename" value="varun"></property>
+			<property name="city" value="chennai"></property>
+			<property name="salary" value="18110.23"></property>
+			<property name="addressName">	
+				<util:map map-class="java.util.HashMap">
+					<entry key="Home Address Country" value="India"></entry>
+					<entry key="Office Address Country" value="India"></entry>
+				</util:map>
+				<!-- or
+				<map>
+					<entry key="Home Address Country" value="India"></entry>
+					<entry key="Office Address Country" value="Australia"></entry>
+				</map> -->
+			</property>
+			<property name="addressMap">
+				<util:map map-class="java.util.HashMap">
+					<entry key="Home Address Map" value-ref="homeAddressObject"></entry>
+					<entry key="Office Address Map" value-ref="officeAddressObject"></entry>
+				</util:map>
+				<!-- or
+				<map>
+					<entry key="Home Address Map" value-ref="homeAddressObject"></entry>
+					<entry key="Office Address Map" value-ref="officeAddressObject"></entry>
+				</map> -->
+			</property>
+		</bean>
+		
+		<bean id="homeAddressObject" class="com.spring.core.bean.AddressBean" scope="prototype" lazy-init="true">
+			<property name="city" value="rohini"></property>
+			<property name="state" value="delhi"></property>
+			<property name="pincode" value="110089"></property>
+		</bean>
+		
+		<bean id="officeAddressObject" class="com.spring.core.bean.AddressBean">
+			<property name="city" value="ernakulam"></property>
+			<property name="state" value="chennai"></property>
+			<property name="pincode" value="3424221"></property>
+		</bean>
+	
+	</beans>

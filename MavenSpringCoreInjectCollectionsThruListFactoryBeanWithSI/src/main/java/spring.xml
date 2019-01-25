@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+	
+		<bean id="employeeObj" class="com.spring.core.bean.EmployeeBean" scope="prototype" lazy-init="true">
+			<property name="eid" value="1001"></property>
+			<property name="ename" value="tarun"></property>
+			<property name="city" value="delhi"></property>
+			<property name="salary" value="979607.34"></property>
+			<property name="addressName">
+				<util:list list-class="java.util.ArrayList">
+					<value>India</value>
+					<value>Australia</value>
+				</util:list>
+				<!-- or
+				<list>
+					<value>India</value>
+					<value>Australia</value>
+				</list> -->
+			</property>
+			<property name="addressList">
+				<util:list list-class="java.util.ArrayList">
+					<ref bean="homeAddressObject"/>
+					<ref bean="officeAddressObject"/>
+				</util:list>
+			<!-- 	or
+				<list>
+					<ref bean="homeAddressObject"/>
+					<ref bean="officeAddressObject"/>
+				</list> -->
+			</property>
+		</bean>
+		
+		<bean id="homeAddressObject" class="com.spring.core.bean.AddressBean" scope="prototype" lazy-init="true">
+			<property name="city" value="rohini"></property>
+			<property name="state" value="delhi"></property>
+			<property name="pincode" value="110089"></property>
+		</bean>
+		
+		<bean id="officeAddressObject" class="com.spring.core.bean.AddressBean">
+			<property name="city" value="melbourn"></property>
+			<property name="state" value="sydney"></property>
+			<property name="pincode" value="452422"></property>
+		</bean>
+	
+	</beans>
