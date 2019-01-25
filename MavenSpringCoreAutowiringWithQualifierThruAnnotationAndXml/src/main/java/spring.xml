@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+   
+   <context:annotation-config></context:annotation-config>
+  
+  <bean id="triangleObject" class="com.spring.core.autowire.qualifier.bean.TriangleBean" scope="prototype" lazy-init="true">
+  </bean>
+   
+  <bean id="pointA" class="com.spring.core.autowire.qualifier.bean.PointsBean">
+  	<property name="x" value = "10"></property>
+  	<property name="y" value = "20"></property>
+  	<property name="z" value = "30"></property>
+  </bean>
+  
+  <bean id="pointB" class="com.spring.core.autowire.qualifier.bean.PointsBean">
+  	<qualifier value = "makeTriangle"></qualifier>
+  	<property name="x" value = "30"></property>
+  	<property name="y" value = "20"></property>
+  	<property name="z" value = "10"></property>
+  </bean>
+
+  </beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+	
+	    <bean id="parentObject" abstract="true">
+			<property name="id" value="1002"></property>
+			<property name="address" ref="addressObject"></property>
+		</bean>
+		
+		 <bean id="childObject" class="com.spring.core.inheritance.bean.EmployeeBean" scope="singleton" lazy-init="true" parent="parentObject">
+            <property name="name" value="Tarun"></property>
+        </bean>
+		        
+        <bean id="addressObject" class="com.spring.core.inheritance.bean.AddressBean" scope="singleton" lazy-init="true">
+        	<property name="city" value="Auckland"></property>
+        	<property name="pincode" value="6747422"></property>
+        </bean>
+
+	</beans>

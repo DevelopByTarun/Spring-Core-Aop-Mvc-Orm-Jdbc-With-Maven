@@ -1,0 +1,6 @@
+/JavaFrameworks/SpringMavenWorkspaceByEclipse/MavenSpringCoreAutowiringWithQualifierUsingAnnotation-A/src/main/java/com/spring/core/autowire/qualifier/App.java
+/JavaFrameworks/SpringMavenWorkspaceByEclipse/MavenSpringCoreAutowiringWithQualifierUsingAnnotation-A/src/main/java/com/spring/core/autowire/qualifier/bean/Helper.java
+/JavaFrameworks/SpringMavenWorkspaceByEclipse/MavenSpringCoreAutowiringWithQualifierUsingAnnotation-A/src/main/java/com/spring/core/autowire/qualifier/bean/Config.java
+/JavaFrameworks/SpringMavenWorkspaceByEclipse/MavenSpringCoreAutowiringWithQualifierUsingAnnotation-A/src/main/java/com/spring/core/autowire/qualifier/bean/Main.java
+/JavaFrameworks/SpringMavenWorkspaceByEclipse/MavenSpringCoreAutowiringWithQualifierUsingAnnotation-A/src/main/java/com/spring/core/autowire/qualifier/bean/ProducerBean.java
+/JavaFrameworks/SpringMavenWorkspaceByEclipse/MavenSpringCoreAutowiringWithQualifierUsingAnnotation-A/src/main/java/com/spring/core/autowire/qualifier/bean/ConsumerBean.java

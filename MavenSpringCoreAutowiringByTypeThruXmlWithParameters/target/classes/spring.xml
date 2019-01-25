@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+    <bean id="applicationProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:application.properties"/>
+    </bean>
+	
+		<bean id="bookObject" class="com.spring.core.autowire.bean.BookBean" autowire="byType" scope="prototype" lazy-init="true">
+			<property name="bookName">
+                <value>${bookname}</value>
+            </property>
+			<property name="bookPrice">
+                <value>${bookprice}</value>
+            </property>
+		</bean>
+		
+		<bean id="categoryObject" class="com.spring.core.autowire.bean.CategoryBean" scope="prototype" lazy-init="true">
+			<property name="bookCategory">
+                <value>${bookcategory}</value>
+            </property>
+		</bean>
+	
+	</beans>
